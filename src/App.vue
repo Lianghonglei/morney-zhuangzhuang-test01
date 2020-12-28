@@ -13,6 +13,7 @@
         line-height: 1.5;
         color:#ccc;
         font-family: $font-hei;
+        font-size: 16px;
     }
 
 </style>
