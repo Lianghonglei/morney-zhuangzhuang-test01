@@ -6,7 +6,7 @@
             <!--            备注-->
             <Notes/>
             <!--            收支选择-->
-            <Types/>
+            <Types propMessage="hi"/>
             <!--            数字键盘-->
             <NumberPad/>
         </Layout>
