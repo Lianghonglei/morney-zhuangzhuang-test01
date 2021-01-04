@@ -60,6 +60,7 @@
 
         ok(){
             this.$emit('update:value', this.output);
+            this.$emit('sumbit', this.output)
         }
     }
 </script>
