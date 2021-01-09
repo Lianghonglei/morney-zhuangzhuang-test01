@@ -12,7 +12,7 @@
     import Vue from 'vue';
     import {Component} from 'vue-property-decorator';
     import tagListModel from '@/models/tagListModel';
-    import Notes from '@/components/Money/Notes.vue';
+    import Notes from '@/components/Money/FormItem.vue';
 
     @Component({
         components:{Notes}

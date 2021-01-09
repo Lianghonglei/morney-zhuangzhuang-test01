@@ -4,7 +4,9 @@
             <!--            标签-->
             <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
             <!--            备注-->
-            <Notes field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
+            <div class="notes">
+                <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
+            </div>
             <!--            收支选择-->
             <Types :value.sync="record.type"/>
             <!--            数字键盘-->
@@ -16,7 +18,7 @@
 <script lang="ts">
     import Vue from 'vue';
     import Tags from '@/components/Money/Tags.vue';
-    import Notes from '@/components/Money/Notes.vue';
+    import FormItem from '@/components/Money/FormItem.vue';
     import Types from '@/components/Money/Types.vue';
     import NumberPad from '@/components/Money/NumberPad.vue';
     import {Component, Watch} from 'vue-property-decorator';
@@ -30,7 +32,7 @@
         components: {
             NumberPad,
             Types,
-            Notes,
+            FormItem,
             Tags,
         }
     })
