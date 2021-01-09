@@ -4,7 +4,7 @@
             <!--            标签-->
             <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
             <!--            备注-->
-            <Notes @update:value="onUpdateNotes"/>
+            <Notes field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
             <!--            收支选择-->
             <Types :value.sync="record.type"/>
             <!--            数字键盘-->
