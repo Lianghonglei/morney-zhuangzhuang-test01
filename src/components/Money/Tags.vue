@@ -43,6 +43,7 @@
 
 <style scoped lang="scss">
     .tags{
+        background: white;
         flex-grow: 1;
         justify-content: flex-end;
         display: flex;
