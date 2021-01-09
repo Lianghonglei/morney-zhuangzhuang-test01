@@ -74,5 +74,8 @@
         flex-direction: column;
         justify-content: flex-end;
     }
+    .notes{
+        padding: 12px 0;
+    }
 </style>
 
