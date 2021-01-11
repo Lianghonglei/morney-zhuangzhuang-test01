@@ -12,7 +12,7 @@ type TagListModel = {
     fetch: () => Tag[];
     create: (name: string) => 'success' | 'duplicated'; //联合类型
     save: () => void;
-    update: (id: stirng, name: string) => 'success' | 'not found' | 'duplicated';
+    update: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
     remove: (id: string) => boolean;
 
 }
@@ -25,37 +25,37 @@ const tagListModel: TagListModel = {
     },
     create(name) {
         const names = this.data.map(item => item.name);
-        if(names.indexOf(name) >= 0){
+        if (names.indexOf(name) >= 0) {
             return 'duplicated';
         }
         const id = createId().toString();
-        this.data.push({id:id, name:name});
+        this.data.push({id: id, name: name});
         this.save();
         return 'success';
     },
-    save(){
-        window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data))
+    save() {
+        window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data));
     },
-    update(id, name){
+    update(id, name) {
         const idList = this.data.map(item => item.id);
-        if(idList.indexOf(id) >= 0){
+        if (idList.indexOf(id) >= 0) {
             const names = this.data.map(item => item.name);
-            if(names.indexOf(name) >= 0){
+            if (names.indexOf(name) >= 0) {
                 return 'duplicated';
-            }else {
+            } else {
                 const tag = this.data.filter(item => item.id === id)[0];
                 tag.name = name;
                 this.save();
                 return 'success';
             }
-        }else{
+        } else {
             return 'not found';
         }
     },
-    remove(id){
+    remove(id) {
         let index = -1;
-        for(let i=0; i<this.data.length; i++){
-            if(this.data[i].id === id){
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i].id === id) {
                 index = i;
                 break;
             }
