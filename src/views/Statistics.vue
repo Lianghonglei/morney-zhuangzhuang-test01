@@ -1,6 +1,6 @@
 <template>
         <Layout>
-            <Types :value.sync="yyy" class-prefix="zzz"/>
+            <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
             <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
         </Layout>
 </template>
@@ -10,23 +10,22 @@
     import {Component} from 'vue-property-decorator';
     import Types from '@/components/Money/Types.vue';
     import Tabs from '@/components/Tabs.vue';
+    import recordTypeList from '@/constants/recordTypeList';
+    import intervalList from '@/constants/intervalList';
     @Component({
         components:{Tabs, Types}
     })
     export default class Statistics extends Vue{
-        yyy = '-';
+        type = '-';
         interval="day";
-        intervalList = [
-            {text:'天', value:'day'},
-            {text:'周', value:'week'},
-            {text:'月', value:'month'}
-        ];
+        intervalList = intervalList;
+        recordTypeList = recordTypeList;
 
     }
 </script>
 
 <style scoped lang="scss">
-   ::v-deep .zzz-item{
+   ::v-deep .type-tabs-item{
         background: #fff;
         &.selected{
             background:#c4c4c4;

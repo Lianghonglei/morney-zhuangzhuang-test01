@@ -8,7 +8,7 @@
                 <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
             </div>
             <!--            收支选择-->
-            <Types :value.sync="record.type"/>
+            <Tabs :data-source="recordTypeList" :value.sync="record.type"/>
             <!--            数字键盘-->
             <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
         </Layout>
@@ -22,9 +22,12 @@
     import Types from '@/components/Money/Types.vue';
     import NumberPad from '@/components/Money/NumberPad.vue';
     import {Component} from 'vue-property-decorator';
+    import Tabs from '@/components/Tabs.vue';
+    import recordTypeList from '@/constants/recordTypeList';
 
     @Component({
         components: {
+            Tabs,
             NumberPad,
             Types,
             FormItem,
@@ -32,6 +35,7 @@
         }
     })
     export default class Money extends Vue{
+        recordTypeList = recordTypeList;
         get recordList(){
             return this.$store.state.recordList;
         }
