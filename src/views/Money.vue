@@ -2,7 +2,7 @@
     <div>
         <Layout class-prefix="layout">
             <!--            标签-->
-            <Tags/>
+            <Tags @selectTags="onUpdateSelectedTags"/>
             <!--            备注-->
             <div class="notes">
                 <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
@@ -10,7 +10,7 @@
             <!--            收支选择-->
             <Types :value.sync="record.type"/>
             <!--            数字键盘-->
-            <NumberPad :value.sync="record.amount" @sumbit="saveRecord"/>
+            <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
         </Layout>
     </div>
 </template>
@@ -41,6 +41,12 @@
 
         created(){
             this.$store.commit('fetchRecords');
+        }
+
+        onUpdateSelectedTags(tagList: Tag[]){
+            this.record.tags = tagList.map((tag) => {
+                return tag.name;
+            })
         }
 
         onUpdateNotes(value: string){

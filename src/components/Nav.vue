@@ -40,7 +40,7 @@
                 height: 32px;
             }
         }
-        > item.selected{
+        > .item.selected{
             color: $color-highlight;
         }
     }

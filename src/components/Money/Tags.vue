@@ -36,6 +36,7 @@
                 this.selectedTags.push(tag);
             }
             this.$emit('update:value', this.selectedTags);
+            this.$emit('selectTags', this.selectedTags);
         }
 
     }

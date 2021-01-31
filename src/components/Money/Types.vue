@@ -1,8 +1,15 @@
 <template>
     <div>
         <ul class="types">
-            <li :class="value === '-' && 'selected'" @click="selectType('-')">支出</li>
-            <li :class="value === '+' && 'selected'" @click="selectType('+')">收入</li>
+            <!--如果对象的属性名里面有变量就可以这么写：用【】中括号括起来-->
+            <li :class="{[classPrefix+'-item']:classPrefix,selected:value==='-'}"
+                @click="selectType('-')">
+                支出
+            </li>
+            <li :class="{[classPrefix+'-item']:classPrefix,selected:value==='+'}"
+                @click="selectType('+')">
+                收入
+            </li>
         </ul>
     </div>
 </template>
@@ -14,7 +21,8 @@
     @Component
 
     export default class Types extends Vue {
-        @Prop() readonly value!: string;
+        @Prop() readonly value!: string; // ！意味他的值一定不可以是空的
+        @Prop() classPrefix?: string; //?意为他的值可以是空
 
         selectType(type: string){
             if(type !== '-' && type !== '+'){
